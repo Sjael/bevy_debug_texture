@@ -1,0 +1,9 @@
+[package]
+name = "bevy_debug_texture"
+description = "Replacement default/debug texture for Bevy games."
+authors = ["aceeri (conmcclusk@gmail.com)"]
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.11"
