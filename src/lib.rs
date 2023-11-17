@@ -1,4 +1,4 @@
-use bevy::{asset::HandleId, prelude::*, render::texture::{ImageType, CompressedImageFormats}};
+use bevy::{prelude::*, render::texture::{ImageType, CompressedImageFormats, ImageSampler}};
 
 pub struct DebugTexturePlugin;
 impl Plugin for DebugTexturePlugin {
@@ -23,6 +23,7 @@ pub fn setup_texture(
         ImageType::Extension("png"),
         CompressedImageFormats::BC,
         false,
+        ImageSampler::Default,
     )
     .expect("Could not create debug texture");
 
@@ -41,11 +42,18 @@ pub fn replace_blank_textures(
     debug_material: Res<DebugMaterial>,
 ) {
     for mut handle in &mut materials {
+        info!("{:?}", handle.id());
+        if *handle == Handle::default() {
+            *handle = debug_material.0.clone();
+        }
+        /*
         match handle.id() {
-            HandleId::Id(_, id) if id == 0 => {
-                *handle = debug_material.0.clone();
+            AssetId::Index {
+                index, _,
+            } if index == DEFAULT_ => {
             }
             _ => {}
         }
+        */
     }
 }
