@@ -1,4 +1,4 @@
-use bevy::{prelude::*, render::texture::{ImageType, CompressedImageFormats, ImageSampler}};
+use bevy::{prelude::*, render::{render_asset::RenderAssetUsages, texture::{CompressedImageFormats, ImageSampler, ImageType}}};
 
 pub struct DebugTexturePlugin;
 impl Plugin for DebugTexturePlugin {
@@ -24,6 +24,7 @@ pub fn setup_texture(
         CompressedImageFormats::BC,
         false,
         ImageSampler::Default,
+        RenderAssetUsages::RENDER_WORLD,
     )
     .expect("Could not create debug texture");
 
