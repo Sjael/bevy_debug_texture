@@ -2,7 +2,7 @@
 name = "bevy_debug_texture"
 description = "Replacement default/debug texture for Bevy games."
 authors = ["aceeri (conmcclusk@gmail.com)"]
-version = "0.3.0"
+version = "0.3.1"
 edition = "2021"
 categories = ["graphics", "rendering"]
 license = "MIT OR Apache-2.0"
