@@ -43,7 +43,7 @@ pub fn replace_blank_textures(
     debug_material: Res<DebugMaterial>,
 ) {
     for mut handle in &mut materials {
-        info!("{:?}", handle.id());
+        //info!("{:?}", handle.id());
         if *handle == Handle::default() {
             *handle = debug_material.0.clone();
         }
